@@ -8,13 +8,25 @@ document.querySelectorAll(".drum")[i].addEventListener("click", function (){
    var b=this.innerHTML;
 
    makeSound(b);
+   addAnimation(b);
 
 });
 
 
 document.addEventListener("keydown", function(){
+
   makeSound(event.key);
+  addAnimation(event.key);
+
 });
+
+function addAnimation(key)
+{
+   document.querySelector("."+key).classList.add("pressed");
+
+   setTimeout(function(){document.querySelector("."+key).classList.remove("pressed");}, 100);
+
+}
 
 
 function makeSound(key)
@@ -59,3 +71,4 @@ function makeSound(key)
 
   }
 }
+
